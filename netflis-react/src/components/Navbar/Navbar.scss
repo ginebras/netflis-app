@@ -1,0 +1,98 @@
+.nav{
+	width: 100vw;
+	font-size: 15px;
+	color: white;
+	position: fixed;
+	top:0;
+	background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3) 50%);
+	transition:all 1s ease;
+	z-index: 999;
+
+	&.scrolled{
+		background-color:var(--main-color) ;
+	}
+
+	.nav-container{
+		padding: 10px 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		span{
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
+
+		span:hover{
+			color: grey;
+			transform:scale(1.1);
+		}
+
+		.nav-left{
+			display: flex;
+			align-items: center;
+
+			img{
+				padding-right:10px;
+				width: 75px;
+				transition:all 0.3s ease;
+			}
+
+			img:hover{
+				transform: scale(1.2);
+			}
+
+			span{
+				padding-right: 10px;
+			}
+		}
+
+		.nav-right{
+			display: flex;
+			align-items: center;
+
+			*{
+				padding: 0 10px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.bi:hover{
+				color: grey;
+			}
+
+			img{
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				object-fit: cover;
+
+				&:hover{
+					transform:scale(1.3);
+				}
+			}
+
+			.profile{
+
+				.options{
+					display:none;
+					background-color: var(--main-color);
+					border-radius: 10px;
+				}
+
+				&:hover{
+					.options{
+						display:flex;
+						flex-direction: column;
+						position: absolute;
+
+						span{
+							padding: 5px;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}

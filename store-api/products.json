@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Product 1",
+    "price": 15,
+    "featured": true,
+    "rating": 3.2,
+    "company": "ikea"
+  },
+  {
+    "name": "Product 2",
+    "price": 10,
+    "featured": false,
+    "rating": 2.4,
+    "company": "caressa"
+  },
+  {
+    "name": "Product 3",
+    "price": 151,
+    "featured": true,
+    "rating": 5.2,
+    "company": "marcos"
+  },
+  {
+    "name": "Product 4",
+    "price": 25,
+    "featured": false,
+    "rating": 3,
+    "company": "liddy"
+  },
+  {
+    "name": "Product 5",
+    "price": 15,
+    "featured": true,
+    "rating": 3.2,
+    "company": "ikea"
+  },
+  {
+    "name": "Product 6",
+    "price": 15,
+    "featured": true,
+    "rating": 3.2,
+    "company": "caressa"
+  },
+  {
+    "name": "Product 7",
+    "price": 15,
+    "featured": true,
+    "rating": 3.2,
+    "company": "marcos"
+  },
+  {
+    "name": "Product 8",
+    "price": 15,
+    "featured": true,
+    "rating": 3.2,
+    "company": "liddy"
+  }
+]
