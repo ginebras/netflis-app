@@ -1,0 +1,36 @@
+.products {
+  flex: 4;
+}
+
+.productListUser {
+  display: flex;
+  align-items: center;
+}
+
+.productListImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+}
+
+.editBtn {
+  border: none;
+  margin-right: 20px;
+  background-color: rgb(36, 194, 120);
+  padding: 7px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.table-icon {
+  font-size: 20px;
+  color: rgb(184, 13, 13);
+  cursor: pointer;
+}

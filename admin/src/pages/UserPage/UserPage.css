@@ -1,0 +1,161 @@
+.userPage {
+  flex: 4;
+  margin: 20px;
+}
+
+.userTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.createButton {
+  border: none;
+  padding: 7px 10px;
+  color: white;
+  background-color: teal;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.userInfoContainer {
+  display: flex;
+}
+
+/*<----- SHOW INFO ----->*/
+.showInfo {
+  flex: 1;
+  margin-right: 10px;
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.16);
+  padding: 10px;
+}
+
+.showTopInfo {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.top-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0px 20px 0 10px;
+}
+
+.userTopInfo {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.userTopInfo .userName {
+  font-weight: 600;
+}
+
+.userTopInfo .userProfession {
+  color: lightslategrey;
+}
+
+.showBottomInfo {
+  padding: 10px;
+}
+
+.bottomInfoContainer {
+  padding: 10px 0px;
+}
+
+.bottomTitle {
+  color: lightslategrey;
+}
+
+.detailsContainer {
+  padding: 10px 0;
+}
+
+.detailsContainer i {
+  padding-right: 10px;
+}
+
+/*<----- SHOW UPDATE ----->*/
+
+.showUpdate {
+  flex: 2;
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.16);
+  padding: 15px;
+  padding-bottom: 0;
+}
+
+.userTitle {
+  padding-left: 5px;
+}
+
+.updateUser {
+  display: flex;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.inputsContainer {
+  flex: 2;
+}
+
+.form-group {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-input {
+  width: 60%;
+  padding: 7px 5px;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+
+.updateAvatar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-img {
+  flex: 2;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.img-container i {
+  font-weight: bolder;
+  font-size: 30px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.updateButton {
+  width: 60%;
+  background-color: rgb(9, 47, 128);
+  border: none;
+  padding: 7px 5px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}

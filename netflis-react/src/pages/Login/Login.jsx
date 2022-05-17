@@ -1,6 +1,24 @@
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+
 import './Login.scss';
 
+import { loginAcount } from '../../redux/reducers/authSlider';
+
 export default function Login(){
+	const dispatch=useDispatch();
+	const navigate=useNavigate();
+	const { register,handleSubmit,formState:{errors}}=useForm();
+
+	const handleLogin=(data)=>{
+		dispatch(loginAcount(data));
+
+		setTimeout(()=>{
+			navigate('/');
+		},2000)
+	}
+
 	return(
 		<div className='login'>
 			<div className='top'>
@@ -14,11 +32,11 @@ export default function Login(){
 			</div>
 
 			<div className='container'>
-				<form>
+				<form onSubmit={handleSubmit(handleLogin)}>
 					<h1>Sign In</h1>	
 
-					<input type='text' placeholder='Email or phone number' />						
-					<input type='password' placeholder='Password' />
+					<input type='text' placeholder='Email or phone number' {...register('email',{required:true})} />						
+					<input type='password' placeholder='Password' {...register('password',{required:true})} />
 					
 					<button>Sign In</button>
 

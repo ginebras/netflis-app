@@ -58,12 +58,51 @@ router.delete('/delete/:id',authorize,async(req,res)=>{
 	}
 });
 
-router.get('/user/:id',verifyToken,async(req,res)=>{
+router.get('/user/:id',authorize,async(req,res)=>{
 	try{
 		let user=await User.findById(req.params.id);
 
 		if(!user) return res.status(404).send({msg:'No founded user'});
 		return res.status(200).send(user);
+
+	}catch(error){
+		return res.status(500).send(error);
+	}
+});
+
+router.get('/users/all',isAdmin,async(req,res)=>{
+	const query=req.query.news;
+	try{
+		const users=query ? await  User.find().sort({ id:-1 }).limit(10) : await User.find();
+
+		if(!users) return res.status(404).send('No founded user');
+		return res.status(200).send(users);
+
+	}catch(error){
+		return res.status(500).send(error);
+	}
+});
+
+router.get('/users/stats',isAdmin,async(req,res)=>{
+	const today=new Date();
+	const lastYear=today.setFullYear(today.setFullYear() -1);
+
+	try{
+		const data=await User.aggregate([
+			{
+				$project:{
+					month:{ $month:'$createdAt' },
+				}
+			},
+			{
+				$group:{
+					_id:'$month',
+					total:{ $sum:1 },
+				}
+			}
+		])
+
+		return res.status(200).send(data);
 
 	}catch(error){
 		return res.status(500).send(error);

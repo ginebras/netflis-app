@@ -1,0 +1,46 @@
+.newUser {
+  flex: 4;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.formGroup {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 15px 0px 0px;
+}
+
+.labelInput {
+  margin-bottom: 8px;
+  color: rgb(116, 127, 138);
+}
+
+.formInput {
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgb(116, 127, 138);
+  border-radius: 5px;
+}
+
+.newGender label {
+  margin-right: 15px;
+}
+
+.inputRadio {
+  margin-right: 5px;
+}
+
+.newUserBtn {
+  width: 40%;
+  padding: 5px 0;
+  color: white;
+  background-color: teal;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

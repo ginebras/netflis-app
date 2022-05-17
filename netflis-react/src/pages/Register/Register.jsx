@@ -1,19 +1,29 @@
-import { useState,useRef } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './Register.scss';
 
+import { createAcount } from '../../redux/reducers/authSlider';
+
 export default function Register(){
-	const emailRef=useRef();
-	const passwordRef=useRef();
+	const dispatch=useDispatch();
+	const navigate=useNavigate();
 	const [ email,setEmail ]=useState("");
 	const [ password,setPassword ]=useState('');
+	const [ ready,setReady ]=useState(false);
 
 	const handleStart=()=>{
-		setEmail(emailRef.current.value);
+		setReady(true);
 	}
 
-	const handleFinish=()=>{
-		setPassword(passwordRef.current.value);
+	const handleFinish=(e)=>{
+		e.preventDefault();
+		dispatch(createAcount({email,password}));
+
+		setTimeout(()=>{
+			navigate('/login');
+		},1500)
 	}
 
 	return(
@@ -37,17 +47,17 @@ export default function Register(){
 		          Ready to watch? Enter your email to create or restart your membership.
 		        </p>
 
-		        {!email ? (
+		        {!ready ? (
 		        	<div className='form-group'>
-			        	<input type='email' placeholder='Email address' ref={emailRef} />
-			        	<button className='registerButton' onClick={handleStart} >
+			        	<input type='email' placeholder='Email address' value={email} onChange={(e)=>setEmail(e.target.value)} />
+			        	<button className='registerButton'onClick={handleStart} >
 			        		Get started
 			        	</button>
 			        </div>
 		        ) : (
-		        	<form className='form-group'>
-			        	<input type='password' placeholder='Password' ref={passwordRef} />
-			        	<button className='registerButton' onClick={handleFinish} >
+		        	<form className='form-group' onSubmit={(e)=>handleFinish(e)}>
+			        	<input type='password' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)} />
+			        	<button className='registerButton' >
 			        		Start
 			        	</button>
 			        </form>
