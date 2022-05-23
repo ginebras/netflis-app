@@ -3,6 +3,7 @@ const User=require('../models/User.model');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const multer=require('multer');
+const { isAdmin,verifyToken }=require('../helpers/jwtVerify');
 
 const MYMES_TIPES={
 	'image/png':'png',
@@ -66,6 +67,26 @@ router.post('/login',async (req,res)=>{
 	}else{
 		return res.status(400).send({msg:'Wrong password'});
 	}
+});
+
+router.get('/verify',isAdmin,async(req,res)=>{
+	try{
+		return res.status(200).send('verify');
+
+	}catch(error){
+		return res.status(500).send(error);
+	}
+
+});
+
+router.get('/verifyClient',verifyToken,async(req,res)=>{
+	try{
+		return res.status(200).send('verify');
+
+	}catch(error){
+		return res.status(500).send(error);
+	}
+
 });
 
 module.exports=router;

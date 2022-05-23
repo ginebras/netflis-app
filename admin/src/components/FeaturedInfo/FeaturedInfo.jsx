@@ -10,7 +10,7 @@ export default function FeaturedInfo() {
           <span className="featuredMoney">$2,415</span>
           <span className="featuredMoneyRate">
             -11.4
-            <i class="bi bi-arrow-down bad-rate"></i>
+            <i className="bi bi-arrow-down bad-rate"></i>
           </span>
         </div>
 
@@ -23,7 +23,7 @@ export default function FeaturedInfo() {
           <span className="featuredMoney">$4,415</span>
           <span className="featuredMoneyRate">
             -1.4
-            <i class="bi bi-arrow-down bad-rate"></i>
+            <i className="bi bi-arrow-down bad-rate"></i>
           </span>
         </div>
 

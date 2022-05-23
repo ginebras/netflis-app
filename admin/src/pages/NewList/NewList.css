@@ -7,6 +7,10 @@
   width: 300px;
 }
 
+.margin{
+  margin-top: 10px;
+}
+
 #isSeries{
   width: 150px;
   padding: 7px;

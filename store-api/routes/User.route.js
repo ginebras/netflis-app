@@ -73,7 +73,7 @@ router.get('/user/:id',authorize,async(req,res)=>{
 router.get('/users/all',isAdmin,async(req,res)=>{
 	const query=req.query.news;
 	try{
-		const users=query ? await  User.find().sort({ id:-1 }).limit(10) : await User.find();
+		const users=query ? await  User.find().sort({ _id:-1 }).limit(10) : await User.find();
 
 		if(!users) return res.status(404).send('No founded user');
 		return res.status(200).send(users);

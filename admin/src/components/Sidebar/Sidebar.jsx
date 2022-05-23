@@ -37,14 +37,16 @@ export default function Sidebar() {
               </Link>
             </li>
             <li className="sidebar-listItem">
-              <Link to="/products" className="link">
-                <i className="bi bi-shop-window sidebar-icon"></i>
-                Products
+              <Link to="/movies" className="link">
+                <i className="bi bi-play-circle sidebar-icon"></i>
+                Movies
               </Link>
             </li>
             <li className="sidebar-listItem">
-              <i className="bi bi-currency-dollar sidebar-icon"></i>
-              Transactions
+              <Link to="/lists" className="link">
+                <i className="bi bi-list sidebar-icon"></i>
+                Lists
+              </Link>
             </li>
             <li className="sidebar-listItem">
               <i className="bi bi-bar-chart-line sidebar-icon"></i>

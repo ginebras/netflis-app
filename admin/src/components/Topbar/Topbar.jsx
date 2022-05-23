@@ -1,7 +1,14 @@
-import React from 'react';
+import {useContext,useEffect} from 'react';
 import './Topbar.css';
+import AuthContext from '../../context/auth/authContext';
 
 export default function Topbar() {
+  const {verifyToken,dispatch}=useContext(AuthContext);
+
+  useEffect(()=>{
+    dispatch(verifyToken());
+  },[])
+
   return (
     <div className="topbar">
       <div className="topbar-wrapper">

@@ -4,6 +4,7 @@ import { authAxios } from '../../config/axios';
 const initialState={
 	token:localStorage.getItem('token') || null,
 	user:localStorage.getItem('user') || null,
+	error:null
 };
 
 export const createAcount=createAsyncThunk(
@@ -28,6 +29,13 @@ export const loginAcount=createAsyncThunk(
 	}
 )
 
+export const verifyToken=createAsyncThunk(
+	'auth/verifytoken',
+	async()=>{
+		await authAxios.get('/verifyClient',{headers:{token:localStorage.getItem('token')}});
+	}
+)
+
 const authSlice=createSlice({
 	name:'auth',
 	initialState:initialState,
@@ -39,6 +47,13 @@ const authSlice=createSlice({
 			localStorage.setItem('user',JSON.stringify(user));
 			state.user=user;
 			state.token=`Bearer ${token}`;
+		},
+
+		[verifyToken.rejected]:(state,action)=>{
+			localStorage.removeItem('token');
+			localStorage.removeItem('user');
+			state.user=null;
+			state.token=null;
 		}
 	}
 });

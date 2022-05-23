@@ -10,6 +10,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(helmet());
+app.use((req,res,next)=>{
+	res.setHeader('Cross-Origin-Resource-Policy','same-site');
+	next();
+})
 
 app.use('/public/uploads',express.static(__dirname+'/public/uploads'));
 

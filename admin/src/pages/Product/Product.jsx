@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 
 import './Product.css';
 import { productData } from '../../dummyData';
 import Chart from '../../components/Chart/Chart';
 
 export default function Product() {
+  const {movie}=useLocation().state;
+
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -16,42 +18,35 @@ export default function Product() {
       </div>
 
       <div className="productTop">
-        <div className="leftTop">
-          <Chart
-            title="Sales Perfomance"
-            dataKey="Sales"
-            useData={productData}
-          />
-        </div>
         <div className="rightTop">
           <div className="productInfoTop">
             <img
-              src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src={movie.imgTitle}
               alt="top-img"
               className="topInfoImg"
             />
-            <span className="infoTitleTop">Apple Airpods</span>
+            <span className="infoTitleTop">{movie.title}</span>
           </div>
 
           <div className="rightTopBottom">
             <div className="productInfoItem">
               <span className="productInfoKey">Id:</span>
-              <span className="productInfoValue">123</span>
+              <span className="productInfoValue">{movie._id}</span>
             </div>
 
             <div className="productInfoItem">
-              <span className="productInfoKey">Sales:</span>
-              <span className="productInfoValue">5123</span>
+              <span className="productInfoKey">Genre:</span>
+              <span className="productInfoValue">{movie.genre}</span>
             </div>
 
             <div className="productInfoItem">
-              <span className="productInfoKey">Active:</span>
-              <span className="productInfoValue">yes</span>
+              <span className="productInfoKey">Limit:</span>
+              <span className="productInfoValue">{movie.limit}</span>
             </div>
 
             <div className="productInfoItem">
-              <span className="productInfoKey">In stock:</span>
-              <span className="productInfoValue">no</span>
+              <span className="productInfoKey">Year:</span>
+              <span className="productInfoValue">{movie.year}</span>
             </div>
           </div>
         </div>
@@ -62,15 +57,72 @@ export default function Product() {
           <div className="leftBottom">
             <div className="bottomGroup">
               <label htmlFor="" className="bottomLabel">
-                Product Name
+                Name
               </label>
               <input
                 type="text"
                 className="bottomInput"
                 disabled
-                value="Apple Airpods"
+                value={movie.title}
               />
             </div>
+
+            <div className="bottomGroup">
+              <label htmlFor="" className="bottomLabel">
+                Id
+              </label>
+              <input
+                type="text"
+                className="bottomInput"
+                disabled
+                value={movie._id}
+              />
+            </div>
+
+            <div className="bottomGroup">
+              <label htmlFor="" className="bottomLabel">
+                Genre
+              </label>
+              <input
+                type="text"
+                className="bottomInput"
+                disabled
+                value={movie.genre}
+              />
+            </div>
+
+            <div className="bottomGroup">
+              <label htmlFor="" className="bottomLabel">
+                Limit
+              </label>
+              <input
+                type="text"
+                className="bottomInput"
+                disabled
+                value={movie.limit}
+              />
+            </div>
+
+            <div className="bottomGroup">
+              <label htmlFor="" className="bottomLabel">
+                Trailer
+              </label>
+              <input
+                type="file"
+                className="bottomInput"
+              />
+            </div>
+
+            <div className="bottomGroup">
+              <label htmlFor="" className="bottomLabel">
+                Video
+              </label>
+              <input
+                type="file"
+                className="bottomInput"
+              />
+            </div>
+
 
             <div className="bottomGroup">
               <label htmlFor="" className="bottomLabel">
@@ -95,7 +147,7 @@ export default function Product() {
           <div className="rightBottom">
             <div className="imgContainer">
               <img
-                src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                src={movie.imgTitle}
                 alt="bottom-img"
                 className="bottomImg"
               />

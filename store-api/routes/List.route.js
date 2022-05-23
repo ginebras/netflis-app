@@ -16,7 +16,7 @@ router.post('/create',isAdmin,async(req,res)=>{
 
 router.delete('/delete/:id',isAdmin,async(req,res)=>{
 	try{
-		await Movie.findByIdAndDelete(req.params.id);
+		await List.findByIdAndDelete(req.params.id);
 
 		return res.status(200).send('deleted list');
 
@@ -47,6 +47,17 @@ router.get('/',verifyToken,async(req,res)=>{
 		}
 
 		return res.status(200).send(list);
+
+	}catch(error){
+		return res.status(500).send(error);
+	}
+});
+
+router.get('/all',verifyToken,async(req,res)=>{
+	try{
+		let lists=await List.find();
+
+		return res.status(200).send(lists);
 
 	}catch(error){
 		return res.status(500).send(error);

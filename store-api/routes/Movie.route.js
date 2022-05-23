@@ -75,10 +75,10 @@ router.get('/random',verifyToken,async(req,res)=>{
 
 router.get('/all',verifyToken,async(req,res)=>{
 	try{
-		const movie=await Movie.find();
+		let movie=await Movie.find();
 
 		if(!movie) return res.status(404).send('no movies');
-		return res.status(200).send(movies);
+		return res.status(200).send(movie);
 
 	}catch(error){
 		return res.status(500).send(error);
